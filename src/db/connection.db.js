@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 let isConnected = false; // global flag
 
-export async function connectDB() {
+async function connectDB() {
 	if (isConnected) return;
 
 	try {
@@ -20,3 +20,5 @@ export async function connectDB() {
 		throw error;
 	}
 }
+
+export default connectDB;
