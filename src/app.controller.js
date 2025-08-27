@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { rateLimiter } from "express-rate-limit";
+import { rateLimit } from "express-rate-limit";
 import connectDB from "./db/connection.db.js";
 import authController from "./modules/Auth/auth.controller.js";
 import userController from "./modules/User/user.controller.js";
@@ -14,7 +14,7 @@ const bootstrap = () => {
 	app.use(cors());
 	app.use(helmet());
 	app.use(
-		rateLimiter({
+		rateLimit({
 			windowMs: 15 * 60 * 1000,
 			limit: 10000,
 			message: "Too many requests from this IP, please try again later.",
